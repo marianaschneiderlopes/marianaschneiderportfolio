@@ -30,7 +30,7 @@ nav a:hover{color:var(--ink)}
 nav a.btn{color:#fff;background:var(--ink);padding:9px 18px;border-radius:40px}
 /* hero */
 .band{height:clamp(150px,22vw,290px);overflow:hidden;position:relative}
-.band img{width:100%;height:100%;object-fit:cover;object-position:center 45%;transform:scale(1.04);animation:bandIn 1.6s cubic-bezier(.2,.7,.2,1) forwards}
+.band picture{display:block;height:100%}.band img{width:100%;height:100%;object-fit:cover;object-position:center 45%;transform:scale(1.04);animation:bandIn 1.6s cubic-bezier(.2,.7,.2,1) forwards}
 @keyframes bandIn{from{transform:scale(1.12);opacity:.0}to{transform:scale(1.04);opacity:1}}
 .intro{padding-top:44px;padding-bottom:40px}
 .intro .k{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin-bottom:18px}
@@ -54,6 +54,34 @@ nav a.btn{color:#fff;background:var(--ink);padding:9px 18px;border-radius:40px}
 html,body{overflow-x:hidden}
 .cb h3,.cb p,.brief p,.cao p{overflow-wrap:anywhere}
 @media (max-width:560px){.cb small{white-space:normal}.eyeline p{font-size:24px}.eyeline small{letter-spacing:.12em}.phones{gap:24px}.desk .vp{height:460px}.mh h2{font-size:34px}.facts{grid-template-columns:1fr}}
+
+.langnote{font-size:14px;color:var(--mute);margin:-14px 0 26px}
+.ptnote{margin:16px 56px 0;font-size:14px;color:var(--mute);border-left:2px solid var(--line);padding-left:12px}
+.grid .c{display:flex;flex-direction:column}
+.grid .c .cb{flex:1}
+.grid .c .open{margin-top:14px}
+@media (max-width:560px){
+ .band{height:250px}
+ .band img{object-position:center 30%}
+ .eyeline{padding-top:28px!important;padding-bottom:26px!important;gap:10px!important}
+ .intro{padding-top:40px!important}
+ .intro .k{margin-bottom:26px;line-height:1.8;letter-spacing:.12em}
+ .intro h1{margin-bottom:6px}
+ .intro .row{margin-top:30px;gap:34px}
+ .intro p.lead{line-height:1.6}
+ .grid{grid-template-columns:1fr!important;gap:0!important}
+ .grid .c{display:grid!important;grid-template-columns:78px 1fr 40px;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);height:auto}
+ .grid .c:first-child{border-top:1px solid var(--line)}
+ .grid .c .cov{aspect-ratio:4/5;border-radius:10px;width:78px}
+ .grid .c .cb{padding:0}
+ .grid .c .cb small{white-space:normal;font-size:11px}
+ .grid .c .cb h3{font-size:19px;margin:5px 0 0}
+ .grid .c .open{border:0;padding:0;margin:0;justify-content:flex-end}
+ .grid .c .open span{display:none}
+ .grid .c .open b{width:38px;height:38px}
+ .ptnote{margin:14px 24px 0}
+ .langnote{margin:-10px 0 18px}
+}
 /* marquee */
 .marq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:transparent;color:var(--ink)}
 .marq .t{display:flex;width:max-content;animation:mq 60s linear infinite}
@@ -204,7 +232,7 @@ footer h2 a:hover .serif{color:var(--acc)}
   <nav><a href="#work">Work</a><a href="#how">How I work</a><a href="#about">About</a><a class="btn" href="#contact">Contact</a></nav>
 </div></header>
 
-<div class="band"><img src="img/pf/hero-eyes.jpg" srcset="img/pf/hero-eyes-m.jpg 900w, img/pf/hero-eyes.jpg 1736w" sizes="100vw" alt="Close-up portrait of Mariana" fetchpriority="high"></div>
+<div class="band"><picture><source media="(max-width:560px)" srcset="img/pf/hero-face-m.jpg"><img src="img/pf/hero-eyes.jpg" srcset="img/pf/hero-eyes-m.jpg 900w, img/pf/hero-eyes.jpg 1736w" sizes="100vw" alt="Close-up portrait of Mariana" fetchpriority="high"></picture></div>
 <div class="w eyeline"><p>Trained eye. <span class="serif">Creative ideas.</span></p><small>10+ years of design</small></div>
 
 <div class="w intro">
@@ -226,8 +254,9 @@ footer h2 a:hover .serif{color:var(--acc)}
       <button class="on" data-f="all">All</button><button data-f="fashion">Fashion &amp; apparel</button><button data-f="ab">Creative variations</button><button data-f="ai">AI-assisted</button><button data-f="email">Email &amp; product pages</button>
     </div>
   </div>
+  <p class="langnote">Several campaigns were originally created in Portuguese for Brazilian brands. I recreated some of them in English myself; the others keep their original Portuguese copy, with each case explained in English.</p>
   <div class="grid" id="grid"></div>
-  <p class="rv" style="margin-top:28px;color:var(--mute);font-size:14.5px">Some campaigns were created for Brazilian brands, so their ad copy is in Portuguese. Each case explains the idea in English.</p>
+  
 </div></section>
 
 <section id="how" style="padding-top:40px"><div class="w">
@@ -282,7 +311,7 @@ footer h2 a:hover .serif{color:var(--acc)}
 <script>
 var P='img/pf/';
 var C=[
-{id:'crewneck',concept:1,f:'fashion ab ai',brand:'Gang · Fashion & apparel',title:'Looking For Love? Crewneck',cover:'hood-back',
+{id:'crewneck',cat:'Fashion & apparel',concept:1,f:'fashion ab ai',brand:'Gang · Fashion & apparel',title:'Looking For Love? Crewneck',cover:'hood-back',
  tags:['Meta static ads','Designed for A/B testing','AI lifestyle photography','Feed + Stories'],
  blurb:'"Phone in hand" ads where the screen is the product page.',
  brief:'Launch the lilac "Looking For Love?" crewneck with static ads for feed and stories. Use our studio photos, follow the brand style, and give us variations to test.',
@@ -292,7 +321,7 @@ var C=[
  ai:'<b>AI-assisted.</b> 5 studio photos became 4 new lifestyle scenes, with the same model, garment and print. Screens were generated green and replaced with a real UI designed in Figma, so fingers sit naturally over the phone.',
  gal:[['Feed 4:5 · variations designed for A/B testing','g3',[['hood-sip','<b>A · Sip. Scroll. Fall in love.</b> Front of the garment on screen'],['hood-back','<b>B · The back does the flirting.</b> Back print on screen'],['hood-pdp','<b>C · The ad is the product page.</b> Three angles, "It\'s a match." sticker']]],
       ['Stories 9:16','g3',[['hood-story-sip','Iced-coffee close-up, extended with AI'],['hood-story-back','<b>Turn heads. Literally.</b> Back print, no phone'],['hood-pdp-story','PDP-style story with a ticker taken from the print']]]]},
-{id:'winter',concept:1,f:'fashion ab ai',brand:'Gang · Menswear',title:'Winter \'26 Knitwear',cover:'win-gray',
+{id:'winter',cat:'Fashion · Menswear',concept:1,f:'fashion ab ai',brand:'Gang · Menswear',title:'Winter \'26 Knitwear',cover:'win-gray',
  tags:['Designed for A/B testing','14 pieces','3 colorways × 4 formats','AI lifestyle'],
  blurb:'14 pieces: 3 color versions × 4 formats, plus a native notification series.',
  brief:'Winter campaign for the ribbed knit in gray and black. We need one version per color, one with both, in every Meta format, plus a "reminder" idea that feels like a phone notification.',
@@ -304,7 +333,7 @@ var C=[
       ['Black · 4 formats','g4',[['win-black','Feed A'],['win-black-b','Feed B · <i>Black goes with winter.</i>'],['win-black-sq','Square 1:1'],['win-black-story','Stories 9:16']]],
       ['Both colors · 4 formats','g4',[['win-duo','Feed A · <i>Two shades of warm.</i>'],['win-duo-b','Feed B · <i>Pick your shade.</i>'],['win-duo-sq','Square 1:1'],['win-duo-story','Stories 9:16']]],
       ['Notification concept · AI lifestyle · 2 scenes × 2 formats','g4',[['win-keys','Feed · <i>Don\'t forget your keys. Or your knit.</i>'],['win-keys-story','Stories'],['win-car-feed','Feed · <i>Cold start? Not in this knit.</i>'],['win-car-story','Stories']]]]},
-{id:'jogger',concept:1,f:'fashion ab ai email',brand:'Gang · Fashion & apparel',title:'The Everyday Jogger',cover:'jog-a',
+{id:'jogger',cat:'Fashion & apparel',concept:1,f:'fashion ab ai email',brand:'Gang · Fashion & apparel',title:'The Everyday Jogger',cover:'jog-a',
  tags:['Designed for A/B testing','19 pieces','Review-led','AI lifestyle','Email'],
  blurb:'19 pieces across 6 formats: headline, color and layout variations.',
  brief:'Ads and an email for the jogger in Sand and Moss. Use the reviews ("from 1,000+ reviews", "Their word, not ours"), keep the seamless studio look, and include an A/B test and a "pick your color" idea.',
@@ -320,7 +349,7 @@ var C=[
       ['Web banners 735×272 · A vs B','g2',[['jog-banner-a','A · Moss, front'],['jog-banner-b','B · Sand, back + CTA']]],
       ['AI lifestyle · 2 scenes × 2 layouts','g4',[['jog-home','Home · A'],['jog-home-b','Home · B · <i>Do nothing, beautifully.</i>'],['jog-market','Market · A'],['jog-market-b','Market · B · review-led']]],
       ['Email','phone',[['jog-email','Launch email · 600px']]]]},
-{id:'cerejeira',concept:1,f:'email ai',brand:'Empório Essenza · Home fragrance',title:'Cerejeira: Ads + Product Page',cover:'cer-a',
+{id:'cerejeira',cat:'Home fragrance · Ads + PDP',pt:1,concept:1,f:'email ai',brand:'Empório Essenza · Home fragrance',title:'Cerejeira: Ads + Product Page',cover:'cer-a',
  tags:['Feed ads','Product detail page','AI scene','PT copy'],
  blurb:'Selling a scent on a screen, from the ad to the add-to-cart.',
  brief:'Ads and a product page for the Cerejeira (cherry blossom) diffuser, following the brand manual. The copy should be highly persuasive and convert.',
@@ -329,7 +358,7 @@ var C=[
  ou:'One consistent journey from the feed to the add-to-cart, with every PDP section answering an objection.',
  ai:'<b>AI-assisted.</b> The olfactory-notes section uses an AI-generated living room styled to the scent, in place of an abstract diagram.',
  gal:[['Feed ads','g4',[['cer-a','Blooms all year'],['cer-b','What does your home smell like?'],['cer-c','Notes arc'],['cer-e','The ritual in 3 steps']]],['Product detail page · desktop','desk',[['cer-pdp','Full PDP, 1440px']]]]},
-{id:'carperfume',concept:1,f:'ab email',brand:'Empório Essenza · Car fragrance',title:'Car Perfume Launch',cover:'car-viagem',
+{id:'carperfume',cat:'Car fragrance · Ads + email',pt:1,concept:1,f:'ab email',brand:'Empório Essenza · Car fragrance',title:'Car Perfume Launch',cover:'car-viagem',
  tags:['Feed + Stories','Email marketing','UI-inspired concepts','PT copy'],
  blurb:'Travel mode, a "what\'s that smell?" chat, and an email that gets sprayed.',
  brief:'Launch campaign for the car perfume line (Malbec, Chardonnay, Cabernet): feed, stories and a standout email. The bottle should "spray" the email, with part of the photo inside a frame and part breaking out of it.',
@@ -338,7 +367,7 @@ var C=[
  ou:'A launch kit with distinct creative angles designed for A/B testing, and an email built on best practices: a clear hero CTA, scannable sections and the offer at the end.',
  ai:'',
  gal:[['Feed 4:5 · five hooks, designed for A/B testing','g3',[['car-viagem','<b>Travel mode</b>: iOS toggles'],['car-cheiro','<b>"What\'s that smell?"</b> chat'],['car-zoom','<b>Focus zoom</b> on the bottle'],['car-carta','<b>Aroma menu</b>: pick your vintage'],['car-anatomia','<b>Anatomy</b>: notes call-outs']]],['Stories','g2',[['car-story-borrife','Spray. Breathe. Go.'],['car-story-viagem','Turn on travel mode']]],['Email','phone',[['car-email','"This email was just perfumed" · 600px']]]]},
-{id:'ou-baskets',concept:1,f:'ab',brand:'Ou · Housewares',title:'Recycled Baskets',cover:'ou-cesto-a',
+{id:'ou-baskets',cat:'Housewares',pt:1,concept:1,f:'ab',brand:'Ou · Housewares',title:'Recycled Baskets',cover:'ou-cesto-a',
  tags:['Designed for A/B testing','4 colorways × 2 layouts','Sustainability claim','PT copy'],
  blurb:'4 colors, 2 layouts each: 8 variations ready to test.',
  brief:'Static ads for the organizer baskets made from 100% post-consumer plastic, in white, graphite, cream and blue, using our existing product photos.',
@@ -350,7 +379,7 @@ var C=[
       ['Graphite · A vs B','g2',[['ou-cesto-grafite-a','<b>A</b> · Lifestyle + floating card'],['ou-cesto-grafite-b','<b>B</b> · Framed photo + headline']]],
       ['Cream · A vs B','g2',[['ou-cesto-creme-a','<b>A</b> · Lifestyle + floating card'],['ou-cesto-creme-b','<b>B</b> · Framed photo + headline']]],
       ['Blue · A vs B','g2',[['ou-cesto-azul-a','<b>A</b> · Lifestyle + floating card'],['ou-cesto-azul-b','<b>B</b> · Framed photo + headline']]]]},
-{id:'ou-bath',concept:1,f:'ai',brand:'Ou · Housewares',title:'Bath Kit',cover:'ou-kit-areia',
+{id:'ou-bath',cat:'Housewares',pt:1,concept:1,f:'ai',brand:'Ou · Housewares',title:'Bath Kit',cover:'ou-kit-areia',
  tags:['Lifestyle ads','AI outpainting','Colorways','PT copy'],
  blurb:'Small rituals, well kept.',
  brief:'Ads for the ceramic bath kit in its colorways. The supplied photos were tightly cropped, so please avoid white gradient fills to make them fit the format.',
@@ -359,7 +388,7 @@ var C=[
  ou:'A consistent colorway series that looks shot for the format, with no visible patches or gradients.',
  ai:'<b>AI-assisted.</b> The original photos were outpainted with AI to fit 4:5 seamlessly, with no gradient fills.',
  gal:[['Colorways','g3',[['ou-kit-areia','Sand'],['ou-kit-pedra','Stone'],['ou-kit-rose','Rosé']]]]},
-{id:'ou-freshlock',concept:1,f:'ab',brand:'Ou · Housewares',title:'Fresh Lock Glass Containers',cover:'ou-fl-temp',
+{id:'ou-freshlock',cat:'Housewares',pt:1,concept:1,f:'ab',brand:'Ou · Housewares',title:'Fresh Lock Glass Containers',cover:'ou-fl-temp',
  tags:['Designed for A/B testing','Product repetition','Product + lifestyle','PT copy'],
  blurb:'From the freezer to the oven in the same container.',
  brief:'Four ideas for the Fresh Lock containers: product repetition with PNGs, a lifestyle-only ad, a lifestyle + PNG mix, and one more. Use a persona and attention-grabbing headlines.',
@@ -368,7 +397,7 @@ var C=[
  ou:'A set where each ad tests a different reason to buy, not just a different layout.',
  ai:'',
  gal:[['Ad mechanics · designed for A/B testing','g3',[['ou-fl-repeat','Product repetition, depth blur'],['ou-fl-png','Exploded view + benefits'],['ou-fl-temp','Freezer to oven']]]]},
-{id:'sale',f:'fashion ai',brand:'Fashion · Sale campaign',title:'One raw photo. 6 minutes. Full rollout.',cover:'sale-45',
+{id:'sale',cat:'Fashion · Sale campaign',f:'fashion ai',brand:'Fashion · Sale campaign',title:'One raw photo. 6 minutes. Full rollout.',cover:'sale-45',
  tags:['Promotional creative','5 formats','AI-directed production','Speed'],
  blurb:'A whole multi-format sale campaign from a single unedited photo.',
  brief:'Urgent: "Two for 40% off" promo across every Meta format plus a web banner. Only one raw photo is available.',
@@ -381,7 +410,7 @@ var C=[
 var grid=document.getElementById('grid');
 grid.innerHTML=C.map(function(c,i){
  return '<button class="c rv" data-f="'+c.f+'" data-i="'+i+'"><div class="cov"><img loading="lazy" src="'+P+c.cover+'-t.jpg" alt=""></div>'+
- '<div class="cb"><small><span>'+String(i+1).padStart(2,'0')+'</span>'+c.brand+'</small><h3>'+c.title+'</h3><p>'+c.blurb+'</p><div class="labels">'+(c.concept?'<i>Independent concept</i>':'<i>Client work</i>')+(c.ai?'<i>AI-assisted</i>':'')+'</div><div class="open"><span>View campaign</span><b>→</b></div></div></button>';
+ '<div class="cb"><small><span>'+String(i+1).padStart(2,'0')+'</span>'+c.cat+'</small><h3>'+c.title+'</h3></div><div class="open"><span>View campaign</span><b>→</b></div></button>';
 }).join('');
 // mobile: color the card in the middle of the screen
 if(matchMedia('(hover:none)').matches&&'IntersectionObserver' in window){var mo=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('live',e.isIntersecting)})},{rootMargin:'-40% 0px -40% 0px'});document.querySelectorAll('#grid .c').forEach(function(c){mo.observe(c)})}
@@ -395,9 +424,9 @@ document.querySelectorAll('.filters button').forEach(function(b){b.onclick=funct
 var m=document.getElementById('m'),mc=document.getElementById('mc');
 function fig(x,cls){return '<figure'+(x[2]===1?' class="before"':'')+'><img loading="lazy" src="'+P+x[0]+'.jpg" alt="'+x[1].replace(/<[^>]+>/g,'').replace(/"/g,'')+'"><figcaption>'+x[1]+'</figcaption></figure>'}
 function openC(i){var c=C[i];
- var h='<div class="mh"><small>'+c.brand+(c.concept?' · Independent concept':'')+'</small><h2>'+c.title+'</h2><div class="meta">'+c.tags.map(function(t){return '<span>'+t+'</span>'}).join('')+'</div></div>'+
- '<div class="brief"><div><b>The brief</b><p>“'+c.brief+'”</p></div><div><b>What I read in it</b><p>'+c.read+'</p></div></div>'+
- '<div class="cao"><div><b>What I did</b><p>'+c.ap+'</p></div><div><b>What it delivers</b><p>'+c.ou+'</p></div></div>'+
+ var h='<div class="mh"><small>'+c.brand+(c.concept?' · Independent concept':' · Client work')+'</small><h2>'+c.title+'</h2><div class="meta">'+c.tags.map(function(t){return '<span>'+t+'</span>'}).join('')+'</div></div>'+
+ '<div class="brief"><div><b>The brief · summarized</b><p>“'+c.brief+'”</p></div><div><b>What I also understood</b><p>'+c.read+'</p></div></div>'+
+ (c.pt?'<p class="ptnote">Created for a Brazilian brand, so the ad copy is in Portuguese. The case is explained here in English.</p>':'')+'<div class="cao"><div><b>What I did</b><p>'+c.ap+'</p></div><div><b>What it delivers</b><p>'+c.ou+'</p></div></div>'+
  (c.ai?'<div class="ainote"><div>'+c.ai+'</div></div>':'')+'<div class="gal">';
  c.gal.forEach(function(g){h+='<h4>'+g[0]+'</h4>';
   if(g[1]=='phone'){h+='<div class="phones">'+g[2].map(function(x){return '<div><div class="phone"><div class="screen"><img src="'+P+x[0]+'.jpg" alt=""></div><span class="hint"><i class="mouse"></i>Scroll to read the email<i class="chev"></i></span></div><div class="pcap">'+x[1]+'</div></div>'}).join('')+'</div>'}
