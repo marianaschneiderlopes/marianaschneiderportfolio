@@ -217,6 +217,15 @@ footer h2 a:hover .serif{color:var(--acc)}
 .lb{position:fixed;inset:0;z-index:80;background:rgba(24,22,20,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:30px;cursor:zoom-out}
 .lb.on{display:flex}
 .lb img{max-height:88vh;max-width:94vw;border-radius:8px;object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+
+.lb .nv{position:fixed;top:50%;transform:translateY(-50%);width:56px;height:56px;border-radius:50%;border:0;background:#fff;color:#151515;font-size:24px;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.3);z-index:2;display:flex;align-items:center;justify-content:center;transition:transform .2s,opacity .2s}
+.lb .nv:hover{transform:translateY(-50%) scale(1.08)}
+.lb .nv.pv{left:20px}.lb .nv.n{right:20px}
+.lb .nv.off{opacity:0;pointer-events:none}
+.lb .ct{position:fixed;bottom:max(18px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:rgba(255,255,255,.92);color:#151515;font:600 13px/1 Archivo,system-ui,sans-serif;letter-spacing:.06em;padding:8px 14px;border-radius:20px}
+.lb img{transition:opacity .18s}
+.lbx{right:24px!important}
+@media (max-width:560px){.lb .nv{width:44px;height:44px;font-size:20px}.lb .nv.pv{left:10px}.lb .nv.n{right:10px}}
 .lbx{position:fixed;top:max(16px,env(safe-area-inset-top));right:16px;width:48px;height:48px;border-radius:50%;border:0;background:#fff;color:var(--ink);font-size:26px;line-height:1;cursor:pointer;z-index:2;box-shadow:0 6px 20px rgba(0,0,0,.3)}
 /* reveal */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
@@ -241,6 +250,15 @@ footer h2 a:hover .serif{color:var(--acc)}
 #grid .c .open b{width:42px;height:42px;font-size:17px}
 .grid{row-gap:56px}
 @media (max-width:560px){.grid{gap:60px!important}#grid .c .cb h3{font-size:24px}}
+
+/* more-work card */
+.grid .c.more{text-decoration:none;color:inherit}
+.c.more .cov{position:relative}
+.c.more .cov img{filter:grayscale(1) blur(2px);transform:scale(1.06)}
+.c.more:hover .cov img,.c.more.live .cov img{filter:blur(1px);transform:scale(1.1)}
+.mtx{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:rgba(21,21,21,.38);color:#fff;text-align:center;padding:20px}
+.mtx b{font-size:clamp(30px,3vw,42px);letter-spacing:-.03em;line-height:1}
+.mtx i{font-style:normal;font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.9}
 </style>
 <script>
   (function(id){ if(!id) return;
@@ -263,7 +281,7 @@ footer h2 a:hover .serif{color:var(--acc)}
 <div class="w eyeline"><p>Trained eye. <span class="serif">Creative ideas.</span></p><small>10+ years of design</small></div>
 
 <div class="w intro">
-  <div class="k">Senior Graphic Designer · DTC fashion &amp; e-commerce · Remote, US hours</div>
+  <div class="k">Senior Graphic Designer · DTC fashion &amp; e-commerce · Open to remote or relocation</div>
   <h1>Mariana<br>Schneider <span class="serif">Lopes.</span></h1>
   <div class="row">
     <p class="lead">I design <b>scroll-stopping static ads</b> for Meta and paid social, built as <b>variations designed for A/B testing</b>, for fashion, lifestyle and home brands. 10+ years turning briefs into creative that sells, now with <b>AI in my production pipeline</b>: more concepts, more variations, same brand standards, a fraction of the time.</p>
@@ -302,7 +320,7 @@ footer h2 a:hover .serif{color:var(--acc)}
     <div class="facts">
       <div><b>10+ years</b><span>Graphic design for retail, fashion, cosmetics, home fragrance and housewares</span></div>
       <div><b>Brief to launch</b><span>Ads, emails, product pages, catalogs and campaigns end to end</span></div>
-      <div><b>US business hours</b><span>Remote from Brazil, fluent async communication in English</span></div>
+      <div><b>Remote or on-site</b><span>Open to remote work, or on-site with relocation. Fluent in English, sync or async</span></div>
       <div><b>AI-native workflow</b><span>Generation, retouching and resizing in my daily production</span></div>
     </div>
   </div>
@@ -327,7 +345,7 @@ footer h2 a:hover .serif{color:var(--acc)}
   <div class="fc">
     <div><b>Email</b><a href="mailto:marianaschneiderlopes@gmail.com?subject=Senior%20Graphic%20Designer">marianaschneiderlopes@gmail.com</a></div>
     <div><b>LinkedIn</b><a href="https://www.linkedin.com/in/marianaschneiderlopes" target="_blank" rel="noopener">linkedin.com/in/marianaschneiderlopes</a></div>
-    <div><b>WhatsApp</b><a href="https://wa.me/5554996005601?text=Hi%20Mariana!%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20talk.">+55 54 99600-5601</a><br><span style="color:#8d8a85">Based in Brazil · available US business hours</span></div>
+    <div><b>WhatsApp</b><a href="https://wa.me/5554996005601?text=Hi%20Mariana!%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20talk.">+55 54 99600-5601</a><br><span style="color:#8d8a85">Open to remote work or on-site roles with relocation</span></div>
   </div>
   <div class="copy">© 2026 Mariana Schneider Lopes. Brand assets shown belong to their owners; some campaigns are concept work created for portfolio purposes.</div>
 </div></footer>
@@ -348,7 +366,7 @@ var C=[
  ai:'<b>AI-assisted.</b> 5 studio photos became 4 new lifestyle scenes, with the same model, garment and print. Screens were generated green and replaced with a real UI designed in Figma, so fingers sit naturally over the phone.',
  gal:[['Feed 4:5 · variations designed for A/B testing','g3',[['hood-sip','<b>A · Sip. Scroll. Fall in love.</b> Front of the garment on screen'],['hood-back','<b>B · The back does the flirting.</b> Back print on screen'],['hood-pdp','<b>C · The ad is the product page.</b> Three angles, "It\'s a match." sticker']]],
       ['Stories 9:16','g3',[['hood-story-sip','Iced-coffee close-up, extended with AI'],['hood-story-back','<b>Turn heads. Literally.</b> Back print, no phone'],['hood-pdp-story','PDP-style story with a ticker taken from the print']]]]},
-{id:'winter',cat:'Fashion · Menswear',concept:1,f:'fashion ab ai',brand:'Gang · Menswear',title:'Winter \'26 Knitwear',cover:'win-gray',
+{id:'winter',cat:'Fashion · Menswear',concept:1,f:'fashion ab ai',brand:'Gang · Menswear',title:'Winter Knitwear',cover:'win-gray',
  tags:['Designed for A/B testing','14 pieces','3 colorways × 4 formats','AI lifestyle'],
  blurb:'14 pieces: 3 color versions × 4 formats, plus a native notification series.',
  brief:'Winter campaign for the ribbed knit in gray and black. We need one version per color, one with both, in every Meta format, plus a "reminder" idea that feels like a phone notification.',
@@ -438,7 +456,9 @@ var grid=document.getElementById('grid');
 grid.innerHTML=C.map(function(c,i){
  return '<button class="c rv" data-f="'+c.f+'" data-i="'+i+'"><div class="cov"><img loading="lazy" src="'+P+c.cover+'-t.jpg" alt=""></div>'+
  '<div class="cb"><small><span>'+String(i+1).padStart(2,'0')+'</span>'+c.cat+'</small><h3>'+c.title+'</h3></div><div class="open"><span>View campaign</span><b>→</b></div></button>';
-}).join('');
+}).join('')+
+ '<a class="c rv more" href="more-work.html" data-f="fashion ab ai email"><div class="cov"><img loading="lazy" src="'+P+'more-t.jpg" alt=""><span class="mtx"><b>More work</b><i>Email · Brand identity · Catalogs · Social</i></span></div>'+
+ '<div class="cb"><small><span>+</span>Beyond static ads</small><h3>See other kinds of work</h3></div><div class="open"><span>View more</span><b>→</b></div></a>';
 // mobile: color the card in the middle of the screen
 if(matchMedia('(hover:none)').matches&&'IntersectionObserver' in window){var mo=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('live',e.isIntersecting)})},{rootMargin:'-40% 0px -40% 0px'});document.querySelectorAll('#grid .c').forEach(function(c){mo.observe(c)})}
 // filters
@@ -464,12 +484,25 @@ function openC(i){var c=C[i];
  mc.innerHTML=h+'</div><aside class="side"><div class="sidek">The case</div>'+side+'</aside></div>';mc.querySelectorAll('.screen,.vp').forEach(function(sc){sc.addEventListener('scroll',function(){var hn=sc.parentNode.querySelector('.hint');if(hn)hn.classList.toggle('gone',sc.scrollTop>40)},{passive:true})});m.classList.add('on');document.body.style.overflow='hidden';m.scrollTop=0;history.replaceState(null,'','#'+c.id);ev&&ev('Abriu '+c.title);
 }
 function closeC(){m.classList.remove('on');document.body.style.overflow='';history.replaceState(null,'',location.pathname+location.search)}
-grid.addEventListener('click',function(e){var c=e.target.closest('.c');if(c)openC(+c.dataset.i)});
+grid.addEventListener('click',function(e){var c=e.target.closest('.c');if(c&&c.dataset.i!==undefined)openC(+c.dataset.i);else if(c)ev&&ev('Clicou More work')});
 m.addEventListener('click',function(e){if(e.target===m||e.target.classList.contains('x'))closeC()});
 var lb=document.getElementById('lb');
-mc.addEventListener('click',function(e){var t=e.target;if(t.matches('.gr img')){lb.querySelector('img').src=t.src;lb.classList.add('on')}
- if(t.dataset.z){e.preventDefault();lb.querySelector('img').src=t.dataset.z;lb.classList.add('on')}});
-lb.onclick=function(){lb.classList.remove('on')};
+var SEL='.gr img';
+(function(){var lb=document.getElementById('lb'),img=lb.querySelector('img'),set=[],i=0;
+ lb.insertAdjacentHTML('beforeend','<button class="nv pv" aria-label="Previous image">←</button><button class="nv n" aria-label="Next image">→</button><span class="ct"></span>');
+ var bp=lb.querySelector('.nv.pv'),bn=lb.querySelector('.nv.n'),ct=lb.querySelector('.ct');
+ function show(k){if(k<0||k>=set.length)return;i=k;img.style.opacity=0;setTimeout(function(){img.src=set[i];img.style.opacity=1},90);
+  ct.textContent=(i+1)+' / '+set.length;ct.style.display=set.length>1?'':'none';bp.classList.toggle('off',i==0);bn.classList.toggle('off',i==set.length-1)}
+ window.openLB=function(t,scope){set=[].slice.call(scope.querySelectorAll(SEL)).map(function(x){return x.dataset.z||x.src});i=Math.max(0,set.indexOf(t.dataset.z||t.src));lb.classList.add('on');show(i)};
+ bp.onclick=function(e){e.stopPropagation();show(i-1)};bn.onclick=function(e){e.stopPropagation();show(i+1)};
+ img.onclick=function(e){e.stopPropagation()};
+ document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key=='ArrowRight')show(i+1);if(e.key=='ArrowLeft')show(i-1)});
+ var x0=null;lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+ lb.addEventListener('touchend',function(e){if(x0==null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){show(dx<0?i+1:i-1)}x0=null},{passive:true});
+})();
+mc.addEventListener('click',function(e){var t=e.target;if(t.matches('.gr img'))openLB(t,mc);
+ if(t.dataset.z){e.preventDefault();var im=lb.querySelector('img');im.src=t.dataset.z;im.style.opacity=1;lb.querySelector('.ct').style.display='none';lb.querySelectorAll('.nv').forEach(function(b){b.classList.add('off')});lb.classList.add('on')}});
+lb.onclick=function(e){if(e.target.closest('.nv'))return;lb.classList.remove('on')};
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(lb.classList.contains('on'))lb.classList.remove('on');else closeC()}});
 // deep link
 (function(){var h=location.hash.slice(1);C.forEach(function(c,i){if(c.id===h)setTimeout(function(){openC(i)},300)})})();
