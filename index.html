@@ -69,19 +69,16 @@ html,body{overflow-x:hidden}
  .intro h1{margin-bottom:6px}
  .intro .row{margin-top:30px;gap:34px}
  .intro p.lead{line-height:1.6}
- .grid{grid-template-columns:1fr!important;gap:0!important}
- .grid .c{display:grid!important;grid-template-columns:78px 1fr 40px;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);height:auto}
- .grid .c:first-child{border-top:1px solid var(--line)}
- .grid .c .cov{aspect-ratio:4/5;border-radius:10px;width:78px}
- .grid .c .cb{padding:0}
- .grid .c .cb small{white-space:normal;font-size:11px}
- .grid .c .cb h3{font-size:19px;margin:5px 0 0}
- .grid .c .open{border:0;padding:0;margin:0;justify-content:flex-end}
- .grid .c .open span{display:none}
- .grid .c .open b{width:38px;height:38px}
+ .grid{grid-template-columns:1fr!important;gap:46px!important}
+ .grid .c .cov{border-radius:16px}
+ .grid .c .cb{padding-top:16px}
+ .grid .c .cb small{white-space:normal;font-size:11.5px}
+ .grid .c .cb h3{font-size:25px;margin:6px 0 4px}
+ .grid .c .open{margin-top:12px}
  .ptnote{margin:14px 24px 0}
  .langnote{margin:-10px 0 18px}
 }
+.g1{grid-template-columns:1fr}
 /* marquee */
 .marq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:transparent;color:var(--ink)}
 .marq .t{display:flex;width:max-content;animation:mq 60s linear infinite}
@@ -198,10 +195,29 @@ footer h2 a:hover .serif{color:var(--acc)}
 .desk .bar{height:30px;background:#ECE8E2;display:flex;gap:6px;align-items:center;padding-left:14px}
 .desk .bar i{width:10px;height:10px;border-radius:50%;background:#cfc8bd}
 .desk .vp{height:600px;overflow-y:auto;scrollbar-width:thin;overscroll-behavior:contain}
+
+/* modal v2: visuals first, case text in a side column */
+.mbody{display:grid;grid-template-columns:minmax(0,1fr) 370px;gap:40px;padding:30px 56px 60px;align-items:start}
+.mbody .gal{padding:0}
+.side{position:sticky;top:24px;max-height:calc(100vh - 48px);overflow-y:auto;scrollbar-width:thin;padding-right:4px}
+.sidek{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.side .brief{margin:0;grid-template-columns:1fr}
+.side .brief div+div{border-left:0;border-top:1px solid var(--line)}
+.side .brief div:first-child p{font-size:19px}
+.side .ptnote{margin:14px 0 0}
+.side .cao{grid-template-columns:1fr;padding:24px 0 18px;gap:20px}
+.side .ainote{margin:0}
+.mh{padding-bottom:0}
+@media (max-width:980px){
+ .mbody{grid-template-columns:1fr;padding:24px 24px 44px;gap:34px}
+ .side{position:static;max-height:none;overflow:visible;padding:30px 0 0;border-top:1.5px solid var(--ink)}
+}
+@media (max-width:560px){.gal .gr.g2,.gal .gr.g3,.gal .gr.g4{grid-template-columns:1fr;gap:22px}.gr figure{border-radius:16px}.gr figcaption{font-size:14px;padding:12px 16px}}
 /* lightbox */
-.lb{position:fixed;inset:0;z-index:80;background:rgba(10,10,10,.92);display:none;align-items:center;justify-content:center;padding:30px;cursor:zoom-out}
+.lb{position:fixed;inset:0;z-index:80;background:#0f0e0d;display:none;align-items:center;justify-content:center;padding:30px;cursor:zoom-out}
 .lb.on{display:flex}
-.lb img{max-height:94vh;max-width:94vw;border-radius:8px;object-fit:contain}
+.lb img{max-height:88vh;max-width:94vw;border-radius:8px;object-fit:contain}
+.lbx{position:fixed;top:max(16px,env(safe-area-inset-top));right:16px;width:48px;height:48px;border-radius:50%;border:0;background:#fff;color:var(--ink);font-size:26px;line-height:1;cursor:pointer;z-index:2;box-shadow:0 6px 20px rgba(0,0,0,.3)}
 /* reveal */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -221,7 +237,7 @@ footer h2 a:hover .serif{color:var(--acc)}
     (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
     t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script",id);
-    var q=new URLSearchParams(location.search); window.clarity('set','origem','design · '+(q.get('ref')||q.get('utm_source')||'link direto'));
+    var q=new URLSearchParams(location.search); window.clarity('set','origem',(q.get('ref')||q.get('utm_source')||location.pathname.replace(/^\/|\/$|\.html$/g,'').replace(/^index$/,'')||'link direto').toLowerCase());
   })("zb25opae9g");
 </script>
 </head>
@@ -306,11 +322,23 @@ footer h2 a:hover .serif{color:var(--acc)}
 </div></footer>
 
 <div class="m" id="m" role="dialog" aria-modal="true"><div class="mp"><button class="x" aria-label="Close">×</button><div id="mc"></div></div></div>
-<div class="lb" id="lb"><img alt=""></div>
+<div class="lb" id="lb"><button class="lbx" aria-label="Close image">×</button><img alt=""></div>
 
 <script>
 var P='img/pf/';
 var C=[
+{id:'email',cat:'Email & lifecycle',pt:1,f:'fashion email ab',brand:'Gang, Pompéia & Ou',title:'Email & Lifecycle Design',cover:'email-gang',
+ tags:['Client work','CRM email campaigns','HTML email','Transactional flows','A/B variations'],
+ blurb:'Campaign and lifecycle emails for two fashion brands and a housewares e-commerce.',
+ brief:'Weekly promotional and seasonal email campaigns for two fashion brands, plus the transactional order emails for a housewares e-commerce. Keep each brand consistent, design mobile-first and test what works.',
+ read:'Email is a retention channel: subscribers already know the brand, so each send needs one clear hook, scannable products and a CTA visible early on mobile. Two fashion brands with different audiences also need two distinct visual languages from the same team.',
+ ap:'Designed and coded CRM email campaigns in HTML for Gang (youth fashion) and Pompéia (family fashion): launches, seasonal collections, sales and shoppable looks, with A/B creative variations. Designed the complete post-purchase flow for Ou\'s e-commerce: order received, approved, invoiced, shipped, delivered and cancelled. Today I also deliver Klaviyo-ready templates.',
+ ou:'A consistent email system for each brand, delivered as HTML, static images or GIFs, plus a complete transactional flow that keeps customers informed at every step after checkout.',
+ ai:'',
+ gal:[['Gang · campaign emails','g2',[['email-gang','Selection of Gang campaign emails'],['email-gang2','Launches, collections and sales']]],
+      ['Pompéia · campaign emails','g2',[['email-pompeia','Selection of Pompéia campaign emails'],['email-pompeia2','Looks, seasonal edits and offers']]],
+      ['Ou · transactional order flow','g1',[['email-ou','Order received, approved, invoiced, shipped, delivered and cancelled']]],
+      ['Launch emails from the campaigns in this portfolio','phone',[['jog-email','The Everyday Jogger · 600px'],['car-email','Car Perfume · 600px']]]]},
 {id:'crewneck',cat:'Fashion & apparel',concept:1,f:'fashion ab ai',brand:'Gang · Fashion & apparel',title:'Looking For Love? Crewneck',cover:'hood-back',
  tags:['Meta static ads','Designed for A/B testing','AI lifestyle photography','Feed + Stories'],
  blurb:'"Phone in hand" ads where the screen is the product page.',
@@ -427,13 +455,14 @@ function openC(i){var c=C[i];
  var h='<div class="mh"><small>'+c.brand+(c.concept?' · Independent concept':' · Client work')+'</small><h2>'+c.title+'</h2><div class="meta">'+c.tags.map(function(t){return '<span>'+t+'</span>'}).join('')+'</div></div>'+
  '<div class="brief"><div><b>The brief · summarized</b><p>“'+c.brief+'”</p></div><div><b>What I also understood</b><p>'+c.read+'</p></div></div>'+
  (c.pt?'<p class="ptnote">Created for a Brazilian brand, so the ad copy is in Portuguese. The case is explained here in English.</p>':'')+'<div class="cao"><div><b>What I did</b><p>'+c.ap+'</p></div><div><b>What it delivers</b><p>'+c.ou+'</p></div></div>'+
- (c.ai?'<div class="ainote"><div>'+c.ai+'</div></div>':'')+'<div class="gal">';
+ (c.ai?'<div class="ainote"><div>'+c.ai+'</div></div>':'');
+ var side=h.slice(h.indexOf('<div class="brief">'));h=h.slice(0,h.indexOf('<div class="brief">'))+'<div class="mbody"><div class="gal">';
  c.gal.forEach(function(g){h+='<h4>'+g[0]+'</h4>';
   if(g[1]=='phone'){h+='<div class="phones">'+g[2].map(function(x){return '<div><div class="phone"><div class="screen"><img src="'+P+x[0]+'.jpg" alt=""></div><span class="hint"><i class="mouse"></i>Scroll to read the email<i class="chev"></i></span></div><div class="pcap">'+x[1]+'</div></div>'}).join('')+'</div>'}
   else if(g[1]=='desk'){h+=g[2].map(function(x){return '<div class="desk"><div class="bar"><i></i><i></i><i></i></div><div class="vp"><img src="'+P+x[0]+'.jpg" alt=""></div><span class="hint"><i class="mouse"></i>Scroll the product page<i class="chev"></i></span></div><div class="pcap">'+x[1]+' · <a href="#" data-z="'+P+x[0]+'.jpg">open full size</a></div>'}).join('')}
   else h+='<div class="gr '+g[1]+'">'+g[2].map(fig).join('')+'</div>';
  });
- mc.innerHTML=h+'</div>';mc.querySelectorAll('.screen,.vp').forEach(function(sc){sc.addEventListener('scroll',function(){var hn=sc.parentNode.querySelector('.hint');if(hn)hn.classList.toggle('gone',sc.scrollTop>40)},{passive:true})});m.classList.add('on');document.body.style.overflow='hidden';m.scrollTop=0;history.replaceState(null,'','#'+c.id);ev&&ev('Abriu '+c.title);
+ mc.innerHTML=h+'</div><aside class="side"><div class="sidek">The case</div>'+side+'</aside></div>';mc.querySelectorAll('.screen,.vp').forEach(function(sc){sc.addEventListener('scroll',function(){var hn=sc.parentNode.querySelector('.hint');if(hn)hn.classList.toggle('gone',sc.scrollTop>40)},{passive:true})});m.classList.add('on');document.body.style.overflow='hidden';m.scrollTop=0;history.replaceState(null,'','#'+c.id);ev&&ev('Abriu '+c.title);
 }
 function closeC(){m.classList.remove('on');document.body.style.overflow='';history.replaceState(null,'',location.pathname+location.search)}
 grid.addEventListener('click',function(e){var c=e.target.closest('.c');if(c)openC(+c.dataset.i)});
@@ -451,12 +480,12 @@ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es
 
 // ===== visit tracking -> /central =====
 var ev=(function(){
-  var URL_='/api/track'; var ativo=false&&location.protocol.indexOf('http')===0 && !/localhost|127\.0\.0\.1|claude/.test(location.hostname);
+  var URL_='/api/track'; var ativo=location.protocol.indexOf('http')===0 && !/localhost|127\.0\.0\.1|claude/.test(location.hostname);
   var q=new URLSearchParams(location.search);
   try{ if(q.get('eu')==='1') localStorage.setItem('ms-eu','1'); if(q.get('eu')==='0') localStorage.removeItem('ms-eu'); if(localStorage.getItem('ms-eu')) ativo=false; }catch(e){}
   var id; try{ id=sessionStorage.getItem('ms-vid'); if(!id){ id=Date.now().toString(36)+Math.random().toString(36).slice(2,7); sessionStorage.setItem('ms-vid',id);} }catch(e){ id=Date.now().toString(36)+Math.random().toString(36).slice(2,7); }
   var ua=navigator.userAgent;
-  var info={id:id, ref:'design · '+(q.get('ref')||q.get('utm_source')||'link direto'),
+  var info={id:id, ref:(q.get('ref')||q.get('utm_source')||decodeURIComponent(location.pathname.replace(/^\/|\/$|\.html$/g,'').replace(/^index$/,''))||'link direto').toLowerCase().slice(0,60),
     veioDe:document.referrer?new URL(document.referrer).hostname:'acesso direto / app',
     aparelho:/iPad|Tablet/i.test(ua)?'Tablet':(/Mobi|Android|iPhone/i.test(ua)?'Celular':'Computador'),
     navegador:/Edg\//.test(ua)?'Edge':/OPR\//.test(ua)?'Opera':/Chrome\//.test(ua)?'Chrome':/Firefox\//.test(ua)?'Firefox':/Safari\//.test(ua)?'Safari':'Outro'};
