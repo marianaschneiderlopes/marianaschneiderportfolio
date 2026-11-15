@@ -87,10 +87,10 @@ h1{font-family:var(--disp);font-weight:400;font-size:46px;line-height:1}
   <header>
     <div>
       <h1>Central do portfólio</h1>
-      <div class="sub">marianaportfolioecurriculo.vercel.app · atualiza sozinha a cada 10 segundos</div>
+      <div class="sub">marianaschneiderportfolio.vercel.app · atualiza sozinha a cada 10 segundos</div>
     </div>
     <div class="status"><span class="dot" id="dot"></span><span id="upd">conectando…</span>
-      <button class="btn" id="notif">🔔 Ativar avisos</button><button class="btn" id="sair">Sair</button></div>
+      <button class="btn" id="notif">🔔 Ativar avisos</button><button class="btn" id="limpar">🧹 Limpar visitas</button><button class="btn" id="sair">Sair</button></div>
   </header>
 
   <div class="kpis">
@@ -140,6 +140,15 @@ h1{font-family:var(--disp);font-weight:400;font-size:46px;line-height:1}
   function login(){ $('app').style.display='none'; $('login').style.display='block'; $('pw').focus(); }
   $('f').onsubmit=function(e){e.preventDefault(); senha=$('pw').value; try{localStorage.setItem('central-senha',senha)}catch(e){} carregar(true)};
   $('sair').onclick=function(){try{localStorage.removeItem('central-senha')}catch(e){} senha=''; login()};
+
+  $('limpar').onclick=function(){
+    if(!confirm('Apagar todas as visitas registradas até agora? Isso não pode ser desfeito.'))return;
+    $('upd').textContent='limpando…';
+    fetch('/api/visitas',{method:'DELETE',headers:{'x-senha':senha}}).then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j}})}).then(function(r){
+      if(!r.ok){ $('upd').textContent=r.j.erro||'Erro ao limpar'; return }
+      conhecidas={}; primeira=true; carregar(true);
+    }).catch(function(){ $('upd').textContent='Erro ao limpar, tente de novo' });
+  };
 
   function carregar(manual){
     if(!senha){login();return}
