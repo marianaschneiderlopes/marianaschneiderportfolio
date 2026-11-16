@@ -166,7 +166,7 @@ footer h2 a:hover .serif{color:var(--acc)}
 .gal h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:30px 0 14px}
 .gal h4:first-child{margin-top:0}
 .gr{display:grid;gap:16px;align-items:start}
-.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g1{grid-template-columns:1fr}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
 .gr figure{background:#fff;border-radius:14px;overflow:hidden}
 .gr img{width:100%;height:auto;cursor:zoom-in}
 .gr figcaption{font-size:13px;padding:10px 14px;color:#4a4641;line-height:1.35}
@@ -362,9 +362,11 @@ var C=[
  read:'The back print is the hero and the copy is already written on it. People shop from their phones, so the ad should feel like someone showing you the product page they just found.',
  ap:'I art-directed hyperrealistic AI shots of the same model wearing the real sweatshirt and holding a phone close to the camera, then designed a working product page inside the screen. The headlines play on the print: "Looking for love?"',
  ou:'A set designed for A/B testing: front versus back on screen, a coffee moment versus a product focus, and an ad that is the product page itself. The same visual system covers feed and stories.',
- ai:'<b>AI-assisted.</b> 5 studio photos became 4 new lifestyle scenes, with the same model, garment and print. Screens were generated green and replaced with a real UI designed in Figma, so fingers sit naturally over the phone.',
+ ai:'<b>AI-assisted.</b> 5 studio photos became 4 new lifestyle scenes and 6 product stills, with the same model, garment and print. Screens were generated green and replaced with a real UI designed in Figma, so fingers sit naturally over the phone.',
  gal:[['Feed 4:5 · variations designed for A/B testing','g3',[['hood-sip','<b>A · Sip. Scroll. Fall in love.</b> Front of the garment on screen'],['hood-back','<b>B · The back does the flirting.</b> Back print on screen'],['hood-pdp','<b>C · The ad is the product page.</b> Three angles, "It\'s a match." sticker']]],
-      ['Stories 9:16','g3',[['hood-story-sip','Iced-coffee close-up, extended with AI'],['hood-story-back','<b>Turn heads. Literally.</b> Back print, no phone'],['hood-pdp-story','PDP-style story with a ticker taken from the print']]]]},
+      ['Stories 9:16','g3',[['hood-story-sip','Iced-coffee close-up, extended with AI'],['hood-story-back','<b>Turn heads. Literally.</b> Back print, no phone'],['hood-pdp-story','PDP-style story with a ticker taken from the print']]],
+      ['Product stills · generated with AI','g1',[['hood-stills','<b>Six views of the real garment.</b> Front, back, 3/4 and flat, ready for the product page and marketplaces']]],
+      ['Before and after','g1',[['hood-before-after','<b>From the client\'s studio photos to a full campaign kit.</b> Same garment, print and color']]]]},
 {id:'winter',cat:'Fashion · Menswear',concept:1,f:'fashion ab ai',brand:'Menswear',title:'Winter Knitwear',cover:'win-gray',
  tags:['Designed for A/B testing','14 pieces','3 colorways × 4 formats','AI lifestyle'],
  blurb:'14 pieces: 3 color versions × 4 formats, plus a native notification series.',
