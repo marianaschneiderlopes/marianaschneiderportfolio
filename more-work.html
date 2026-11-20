@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>More work · Mariana Schneider Lopes</title>
-<meta name="description" content="Email & CRM, brand identity, catalogs and social media by Mariana Schneider Lopes, Senior Graphic Designer.">
+<meta name="description" content="E-commerce UX/UI, email & CRM, brand identity, catalogs and social media by Mariana Schneider Lopes, Senior Graphic Designer.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -105,6 +105,15 @@ footer h2 a:hover .serif{color:#A9A39A}
 .ar.off{opacity:0;pointer-events:none}
 @keyframes arp{50%{transform:translateY(-50%) translateX(5px)}}
 .phones{padding-right:60px}
+/* desktop scroll frames */
+.desks{display:flex;gap:28px;overflow-x:auto;padding:6px 4px 18px;padding-right:60px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.desk{flex:0 0 auto;width:min(640px,82vw);scroll-snap-align:start}
+.desk .fr{height:440px;border-radius:14px;background:#E2DCD3;padding:30px 8px 8px;box-shadow:0 24px 50px rgba(0,0,0,.16);position:relative}
+.desk .fr::before{content:"";position:absolute;top:11px;left:14px;width:9px;height:9px;border-radius:50%;background:#CBC2B6;box-shadow:15px 0 0 #CBC2B6,30px 0 0 #CBC2B6}
+.desk .screen{border-radius:6px}
+.desk .fr .hint{left:8px;right:8px;bottom:8px;border-radius:0 0 6px 6px}
+.desk p{font-size:13px;color:var(--mute);text-align:center;margin-top:12px;line-height:1.35}
+@media (max-width:560px){.desk .fr{height:330px}}
 /* scroll hint inside phones */
 .fr .hint{position:absolute;left:11px;right:11px;bottom:11px;height:130px;border-radius:0 0 30px 30px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,.95) 60%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:7px;padding-bottom:16px;pointer-events:none;z-index:3;transition:opacity .5s;color:var(--ink);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 .fr .hint.gone{opacity:0}
@@ -197,12 +206,13 @@ footer h2 a:hover .serif{color:#A9A39A}
 <div class="w hero rv">
   <div class="k">More work · beyond ads</div>
   <h1>More <span class="serif">work.</span></h1>
-  <p>The campaigns show how I build ads. This is the rest of the job: email and CRM, brand identities, product catalogs and social media, for retail chains, a business school, a real-estate developer and independent professionals. Most pieces were made for Brazilian brands, so the copy inside them is in Portuguese; each case is explained in English.</p>
+  <p>The campaigns show how I build ads. This is the rest of the job: e-commerce UX/UI, email and CRM, brand identities, product catalogs and social media, for retail chains, a business school, a real-estate developer and independent professionals. Most pieces were made for Brazilian brands, so the copy inside them is in Portuguese; each case is explained in English.</p>
 </div>
 
 <div class="w">
   <div class="filters" id="filters">
     <button class="on" data-f="all">All</button>
+    <button data-f="web">UX/UI &amp; e-commerce</button>
     <button data-f="email">Email &amp; CRM</button>
     <button data-f="brand">Brand identity</button>
     <button data-f="print">Catalogs &amp; print</button>
@@ -235,6 +245,15 @@ footer h2 a:hover .serif{color:#A9A39A}
 var P='img/more/', F='files/';
 function r(pre,list){return list.map(function(n){return pre+n})}
 var M=[
+{id:'ecommerce',cover:'ux-cover.jpg',n:'UX/UI · E-commerce',f:'web',k:'UX/UI design · In-house',t:'E-commerce UX/UI for Home Goods',
+ d:['Two online stores for a housewares manufacturer with two brands: Ou, practical plastic products made in its own factory, and Yoi, bamboo and design-led imported pieces. Both had only institutional websites, and the goal was to start selling online fast, during the pandemic, without the two stores looking alike.',
+    'With a small team, I worked from research to hand-off: audience and competitor analysis, sales data and constant input from the sales team. One finding changed the menu: customers didn’t know the product-line names, so categories are named by what the product is and by room. I built the UI style guide and components for Ou first, then reapplied them to Yoi with its own visual language, and designed the desktop pages and key mobile screens, which the developers extended to the rest.',
+    'Before going public, the store opened to the company’s 400+ employees with a 50% coupon, so real buyers could test the whole journey and send feedback. In the three months after launch, the brand grew from about 9k to 200k followers on social media.'],
+ tags:['UX research','Information architecture','UI style guide','Components','Checkout flow','Transactional emails','Dev hand-off'],
+ credit:'The mobile product page shown here is a recent adaptation of the original desktop design.',
+ g:[['Mobile and transactional emails · scroll inside each phone','phones',[['ux-mobile.jpg','Product page · mobile'],['ux-email-recebido.jpg','Order received · transactional email'],['ux-email-entregue.jpg','Order delivered · transactional email']]],
+    ['Desktop pages · scroll inside each screen','desks',[['ux-home.jpg','Home · shop by room and product type'],['ux-product.jpg','Product page · gallery, variants and cross-sell']]],
+    ['UI style guide','g2',[['ux-cores.jpg','Colors'],['ux-tipografia.jpg','Type scale'],['ux-componentes.jpg','Components · buttons, forms, coupon, order tracking'],['ux-elementos.jpg','UI elements · headers, tabs, product cards, cart']]]]},
 {id:'pompeia',cover:'pom-mockup.jpg',n:'Email · Women’s fashion brand',f:'email',k:'Email & CRM · In-house',t:'Email Marketing for Fashion Retail',
  d:['Weekly CRM emails for a family-fashion retailer with 100+ stores. I took each send from idea to inbox: concept, design, animated GIFs and the HTML build.',
     'Product spotlights, shoppable looks, trend edits and coupon campaigns all run on one modular template with a consistent footer, so new sends are fast to produce and still feel like the same brand.'],
@@ -321,7 +340,8 @@ list.innerHTML=M.map(function(c,i){
   '<div class="body"><div class="bin">'+(c.cover?'<div class="cover'+(c.id=='xoks'?' thin':'')+'"><img loading="lazy" src="'+P+c.cover+'" alt=""></div>':'');
  c.g.forEach(function(g){h+='<h4>'+g[0]+'</h4>';
   var AR='<button class="ar l off" aria-label="Previous">←</button><button class="ar r" aria-label="Next">→</button>';
-  if(g[1]=='phones') h+='<div class="scr"><div class="phones">'+g[2].map(function(x){return '<div class="phone"><div class="fr"><div class="screen"><img loading="lazy" src="'+P+x[0]+'" alt="'+x[1]+'"></div><span class="hint"><i class="mouse"></i>Scroll to read<br>the full email</span></div><p>'+x[1]+'</p></div>'}).join('')+'</div>'+(g[2].length>1?AR:'')+'</div>';
+  if(g[1]=='phones') h+='<div class="scr"><div class="phones">'+g[2].map(function(x){return '<div class="phone"><div class="fr"><div class="screen"><img loading="lazy" src="'+P+x[0]+'" alt="'+x[1]+'"></div><span class="hint"><i class="mouse"></i>Scroll to see<br>the full '+(x[1].toLowerCase().indexOf('email')>-1?'email':'page')+'</span></div><p>'+x[1]+'</p></div>'}).join('')+'</div>'+(g[2].length>1?AR:'')+'</div>';
+  else if(g[1]=='desks') h+='<div class="scr"><div class="desks">'+g[2].map(function(x){return '<div class="desk"><div class="fr"><div class="screen"><img loading="lazy" src="'+P+x[0]+'" alt="'+x[1]+'"></div><span class="hint"><i class="mouse"></i>Scroll to see<br>the full page</span></div><p>'+x[1]+'</p></div>'}).join('')+'</div>'+(g[2].length>1?AR:'')+'</div>';
   else if(g[1].indexOf('row')===0) h+='<div class="scr"><div class="'+g[1]+'">'+g[2].map(function(x){return '<img loading="lazy" src="'+P+x+'" alt="">'}).join('')+'</div>'+AR+'</div>';
   else h+='<div class="gr '+g[1]+'">'+g[2].map(function(x){return im(x[0],x[1])}).join('')+'</div>';
  });
